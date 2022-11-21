@@ -20,14 +20,16 @@ class _HomePageState extends State<HomePage> {
           itemCount: contatos.length,
           itemBuilder: ((context, index) {
             var contato = contatos[index];
-
             return Card(
               child: ListTile(
                 leading: const CircleAvatar(),
-                title: Text(contato.nome),
+                title: Text(contato.nome!),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(contato.telefone), Text(contato.email)],
+                  children: [
+                    Text(contato.telefone!),
+                    Text(contato.email ?? ''),
+                  ],
                 ),
               ),
             );

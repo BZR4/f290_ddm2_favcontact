@@ -19,48 +19,50 @@ class _ContatoFormState extends State<ContatoForm> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Adicionar')),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              print('Evento CircleAvatar');
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(16),
-              child: CircleAvatar(
-                radius: 80,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                print('Evento CircleAvatar');
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(16),
                 child: CircleAvatar(
-                  radius: 75,
-                  backgroundImage: NetworkImage(url),
+                  radius: 80,
+                  child: CircleAvatar(
+                    radius: 75,
+                    backgroundImage: NetworkImage(url),
+                  ),
                 ),
               ),
             ),
-          ),
-          CustomTextField(
-            labelText: 'Nome',
-            iconData: Icons.text_fields,
-            controller: controllerNome,
-          ),
-          CustomTextField(
-            labelText: 'E-mail',
-            iconData: Icons.email,
-            controller: controllerEmail,
-          ),
-          CustomTextField(
-            labelText: 'Telefone',
-            iconData: Icons.smartphone,
-            controller: controllerTelefone,
-          ),
-          Container(
-            margin: const EdgeInsets.all(16),
-            height: 48,
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text('SALVAR'),
+            CustomTextField(
+              labelText: 'Nome',
+              iconData: Icons.text_fields,
+              controller: controllerNome,
             ),
-          )
-        ],
+            CustomTextField(
+              labelText: 'E-mail',
+              iconData: Icons.email,
+              controller: controllerEmail,
+            ),
+            CustomTextField(
+              labelText: 'Telefone',
+              iconData: Icons.smartphone,
+              controller: controllerTelefone,
+            ),
+            Container(
+              margin: const EdgeInsets.all(16),
+              height: 48,
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('SALVAR'),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
